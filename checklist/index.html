@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        addEventListener("DOMContentLoaded", (event) => {
+            function select() {
+                console.log(self.event.target);
+            }   
+            document.getElementsByTagName("input")[1].onclick = select;
+            
+        });
+    </script>
+    <title>To-Do list</title>
+</head>
+<body>
+    <div id="content">
+        <div>
+            <h2>title</h2>
+            <input type="text" name="title" id="title">
+            <h3>descripiton</h3>
+            <textarea id="textarea"></textarea>
+            <br>
+            <button>add task</button>
+        </div>
+        <hr>
+        <div>
+            <div class="todo">
+                <div>
+                    <h2>hello this is a long title</h2>
+                <p>this is a description this is a descriptionthis is a descriptionthis is a descriptionthis is a descriptionthis is a descriptionthis is a descriptionthis is a descriptionthis is a descriptionthis is a descriptionthis is a descriptionthis is a description</p>
+                </div>
+                <input type="checkbox">
+            </div>
+        </div>
+    </div>
+</body> 
+</html>
