@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        
+        addEventListener("DOMContentLoaded", (event) => {
+            //checked function
+            function checked() {
+                var check = this;
+
+                if (check.checked == false) {
+                    check.parentElement.parentElement.style = "opacity: 100%; text-decoration: none;";
+                } else {
+                    check.parentElement.parentElement.style = "opacity: 50%; text-decoration: line-through;";
+                }
+                
+            }
+            //delete function
+            function deletet() {
+                this.parentElement.parentElement.remove();
+            }
+
+            var index = 0;
+            //adding a task
+            function add() {
+                let title = document.getElementById("title");   
+                let text = document.getElementById("textarea");
+                
+                if (title.value != "") {
+                    let task = `<div class="task" id="${index}"><div class="text"><h2>${title.value}</h2><p>${text.value}</p></div><div class="inputs"><input class="check" type="checkbox"><button class="delete">delete</button></div></div>`;
+                    document.getElementById("todo").innerHTML += task;
+
+                    x = document.querySelectorAll(".check");
+
+                    x.forEach(element => {
+                        element.addEventListener("click",checked);
+                    });
+
+                    y = document.querySelectorAll(".delete");
+
+                    y.forEach(element => {
+                        element.addEventListener("click",deletet);
+                    });
+
+                    title.value = "";
+                    text.value = "";
+                    index++;
+                }
+
+                
+            }
+            document.getElementById("submit").onclick = add;
+
+
+            
+        });
+    </script>
+    <title>To-Do list</title>
+</head>
+<body>
+    <div id="content">
+        <div>
+            <h2>title</h2>
+            <input type="text" name="title" id="title">
+            <h3>descripiton</h3>
+            <textarea id="textarea"></textarea>
+            <br>
+            <button id="submit">add task</button>
+        </div>
+        <hr>
+        <div id="todo">
+        </div>
+    </div>
+</body> 
+</html>
